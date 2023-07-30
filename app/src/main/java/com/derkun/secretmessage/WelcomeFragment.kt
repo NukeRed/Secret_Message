@@ -10,7 +10,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import androidx.fragment.app.findFragment
+import androidx.navigation.findNavController
 
 
 class WelcomeFragment : Fragment() {
@@ -25,7 +25,11 @@ class WelcomeFragment : Fragment() {
 
         //Вызываем setOnClickListener для startButton
         startButton.setOnClickListener {
-            // Запишем позже код который будет вызываться, когда по кнопке старта нажмут
+            // Нижеуказанный код который будет переносить пользователя на следующий экран,
+            // когда происходит нажатие по кнопке старта
+            view.findNavController()
+                .navigate(R.id.action_welcomeFragment2_to_messageFragment)
+
         }
         // Возвращаем ссылку на корневое представление
         return view
